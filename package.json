@@ -1,0 +1,36 @@
+{
+  "name": "objecdiff",
+  "version": "1.0.0",
+  "description": "An object difference library for NodeJS.",
+  "main": "lib/objecdiff.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/tests.js",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrodrig/objecdiff.git"
+  },
+  "keywords": [
+    "object",
+    "diff",
+    "obj",
+    "difference"
+  ],
+  "author": "mrodrig",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrodrig/objecdiff/issues"
+  },
+  "homepage": "https://github.com/mrodrig/objecdiff#readme",
+  "dependencies": {
+    "doc-path": "^1.0.7",
+    "underscore": "~1.8.3"
+  },
+  "devDependencies": {
+    "async": "^2.0.0-rc.6",
+    "istanbul": "^0.4.4",
+    "mocha": "^2.5.3",
+    "should": "^9.0.2"
+  }
+}
