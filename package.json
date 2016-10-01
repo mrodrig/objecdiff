@@ -1,6 +1,6 @@
 {
   "name": "objecdiff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An object difference library for NodeJS.",
   "main": "lib/objecdiff.js",
   "scripts": {
@@ -24,13 +24,13 @@
   },
   "homepage": "https://github.com/mrodrig/objecdiff#readme",
   "dependencies": {
-    "doc-path": "^1.0.7",
-    "underscore": "~1.8.3"
+    "doc-path": "1.0.7",
+    "underscore": "1.8.3"
   },
   "devDependencies": {
-    "async": "^2.0.0-rc.6",
-    "istanbul": "^0.4.4",
-    "mocha": "^2.5.3",
-    "should": "^9.0.2"
+    "async": "2.0.1",
+    "istanbul": "0.4.5",
+    "mocha": "3.1.0",
+    "should": "11.1.0"
   }
 }
