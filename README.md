@@ -72,7 +72,7 @@ $ npm run coverage
 
 Current Coverage is:
 ```
-
+<Tests coming soon.>
 ```
 
 ## Features
