@@ -1,6 +1,6 @@
-var objecdiff = require('../lib/objecdiff.js');
+let objecdiff = require('../src/objecdiff.js');
 
-var a = {
+let a = {
         firstName: 'Mike',
         lastName: 'R',
         city: 'Boston'
