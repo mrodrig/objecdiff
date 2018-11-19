@@ -1,6 +1,6 @@
 var should = require('should'),
     assert = require('assert'),
-    converter = require('../lib/objecdiff.js'),
+    converter = require('../src/objecdiff.js'),
     _ = require('underscore'),
     testData = {
         dates: {

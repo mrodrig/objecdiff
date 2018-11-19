@@ -1,12 +1,13 @@
 # An object difference library for NodeJS
 
+**This module can compares two objects and return the key that has changed along with the original and new values.**
+
+[![Dependencies](https://img.shields.io/david/mrodrig/objecdiff.svg?style=flat-square)](https://www.npmjs.org/package/objecdiff)
 [![Build Status](https://travis-ci.org/mrodrig/objecdiff.svg?branch=master)](https://travis-ci.org/mrodrig/objecdiff)
-[![bitHound Dependencies](https://www.bithound.io/github/mrodrig/objecdiff/badges/dependencies.svg)](https://www.bithound.io/github/mrodrig/objecdiff/master/dependencies/npm)
 [![Downloads](http://img.shields.io/npm/dm/objecdiff.svg)](https://www.npmjs.org/package/objecdiff)
 [![NPM version](https://img.shields.io/npm/v/objecdiff.svg)](https://www.npmjs.org/package/objecdiff)
-[![bitHound Score](https://www.bithound.io/github/mrodrig/objecdiff/badges/score.svg)](https://www.bithound.io/github/mrodrig/objecdiff)
-
-This module can compares two objects and return the key that has changed along with the original and new values.
+[![Maintainability](https://api.codeclimate.com/v1/badges/a10c14045f3d45d32b76/maintainability)](https://codeclimate.com/github/mrodrig/objecdiff/maintainability)
+[![Known Vulnerabilities](https://snyk.io/test/npm/objecdiff/badge.svg)](https://snyk.io/test/npm/objecdiff)
 
 ## Installation
 
@@ -17,7 +18,7 @@ $ npm install objecdiff
 ## Usage
 
 ```javascript
-var objecdiff = require('objecdiff');
+let objecdiff = require('objecdiff');
 ```
 
 ### API
@@ -34,9 +35,9 @@ objecdiff.diff(objectA, objectB)
 #### Example
 
 ```javascript
-var objecdiff = require('../lib/objecdiff.js');
+let objecdiff = require('../lib/objecdiff.js');
 
-var a = {
+let a = {
         firstName: 'Mike',
         lastName: 'R',
         city: 'Boston'
