@@ -7,7 +7,6 @@
 [![Downloads](http://img.shields.io/npm/dm/objecdiff.svg)](https://www.npmjs.org/package/objecdiff)
 [![NPM version](https://img.shields.io/npm/v/objecdiff.svg)](https://www.npmjs.org/package/objecdiff)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a10c14045f3d45d32b76/maintainability)](https://codeclimate.com/github/mrodrig/objecdiff/maintainability)
-[![Known Vulnerabilities](https://snyk.io/test/npm/objecdiff/badge.svg)](https://snyk.io/test/npm/objecdiff)
 
 ## Installation
 
