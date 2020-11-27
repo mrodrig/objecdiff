@@ -2,7 +2,7 @@
 
 let key = require('deeks'),
     _ = require('underscore'), // Require underscore
-    path = require('doc-path'); // Require doc-path
+    path = require('./path'); // Require doc-path
 
 module.exports = {
     diff: diff
