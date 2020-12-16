@@ -1,6 +1,6 @@
 var should = require('should'),
     assert = require('assert'),
-    converter = require('../src/objecdiff.js'),
+    converter = require('../lib/objecdiff.js'),
     _ = require('underscore'),
     testData = {
         dates: {
@@ -48,7 +48,7 @@ var should = require('should'),
 describe('Testing Default Usage', function () {
     describe('Default Options', function () {
         beforeEach(function () {
-            
+
         });
 
         it('should work on dates', function(done) {

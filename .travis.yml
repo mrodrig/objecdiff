@@ -1,9 +1,11 @@
-sudo: false
 language: node_js
 node_js:
+  - "15"
   - "14"
   - "12"
-  - "11"
   - "10"
-  - "9"
-  - "8"
+sudo: false
+script:
+  - npm run coverage
+after_success:
+  - "npm run coveralls"

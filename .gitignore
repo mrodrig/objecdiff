@@ -3,3 +3,4 @@ package-lock.js
 *.iml
 node_modules
 coverage
+.nyc_output

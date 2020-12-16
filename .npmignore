@@ -8,3 +8,6 @@ coverage/
 coverage/*
 .nyc_output
 _config.yml
+.coveralls.yml
+.travis.yml
+.nyc_output
