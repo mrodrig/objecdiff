@@ -1,6 +1,6 @@
 {
   "name": "objecdiff",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "An object difference library for NodeJS.",
   "main": "lib/objecdiff.js",
   "scripts": {
