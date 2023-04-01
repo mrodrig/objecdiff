@@ -8,47 +8,58 @@ const testData = {
             startDate: new Date('1/1/2021'),
             endDate: new Date('3/7/2023'),
         },
-        new: {
+        updated: {
             startDate: new Date('1/1/2021'),
             endDate: new Date('3/14/2023'),
             dueDate: new Date('4/1/2023'),
         }
     },
     strings: {
-        original: {},
-        new: {}
+        original: {
+            firstName: 'Mike',
+            lastName: 'R',
+            city: 'Boston'
+        },
+        updated: {
+            firstName: 'Dan',
+            name: 'Dan G',
+            color: {
+                favorite: 'blue'
+            },
+            city: 'Boston'
+        }
     },
     booleans: {
         original: {},
-        new: {}
+        updated: {}
     },
     nestedDocs: {
         original: {},
-        new: {}
+        updated: {}
     },
     functions: {
         original: {},
-        new: {}
+        updated: {}
     },
     errors: {
         original: {},
-        new: {}
+        updated: {}
     },
     nulls: {
         original: {},
-        new: {}
+        updated: {}
     },
     undefineds: {
         original: {},
-        new: {}
+        updated: {}
     },
     arrays: {
         original: {},
-        new: {}
+        updated: {}
     },
     regexps: {
         original: {},
-        new: {}
+        updated: {}
     }
 };
 
@@ -68,9 +79,19 @@ describe('objecdiff', function () {
     describe('diff', function () {
 
         it('should work on dates', async function() {
-            const differences = diff(testData.dates.original, testData.dates.new);
+            const data = testData.dates;
+
+            const differences = diff(data.original, data.updated);
             assert.equal(differences.length, 2);
-            assertPathDifferences(['endDate', 'dueDate'], testData.dates.original, testData.dates.new, differences);
+            assertPathDifferences(['endDate', 'dueDate'], data.original, data.updated, differences);
+        });
+
+        it('should work on strings', async function() {
+            const data = testData.strings;
+            
+            const differences = diff(data.original, data.updated);
+            assert.equal(differences.length, 4);
+            assertPathDifferences(['firstName', 'lastName', 'name', 'color.favorite'], data.original, data.updated, differences);
         });
     });
 });
