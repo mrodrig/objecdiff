@@ -1,6 +1,6 @@
-let objecdiff = require('../lib/objecdiff.js');
+import { diff } from '../src/objecdiff';
 
-let a = {
+const a = {
         firstName: 'Mike',
         lastName: 'R',
         city: 'Boston'
@@ -14,4 +14,4 @@ let a = {
         city: 'Boston'
     };
 
-console.log(objecdiff.diff(a, b));
+console.log(diff(a, b));
