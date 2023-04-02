@@ -12,46 +12,84 @@ const testData = {
             startDate: new Date('1/1/2021'),
             endDate: new Date('3/14/2023'),
             dueDate: new Date('4/1/2023'),
-        }
+        },
     },
     strings: {
         original: {
             firstName: 'Mike',
             lastName: 'R',
-            city: 'Boston'
+            city: 'Boston',
         },
         updated: {
             firstName: 'Dan',
             name: 'Dan G',
             color: {
-                favorite: 'blue'
+                favorite: 'blue',
             },
-            city: 'Boston'
-        }
+            city: 'Boston',
+        },
     },
     booleans: {
-        original: {},
-        updated: {}
+        original: {
+            enabled: true,
+            wasPreviouslyEnabled: false,
+        },
+        updated: {
+            enabled: false,
+            wasPreviouslyEnabled: true,
+        },
     },
     nestedDocs: {
-        original: {},
-        updated: {}
+        original: {
+            singleLevel: {
+                fieldLevel: '1',
+            },
+        },
+        updated: {
+            singleLevel: {
+                fieldLevel: 'unknown',
+            },
+            multiLevel: {
+                firstLevel: {
+                    a: 1,
+                    anotherLevel: {
+                        b: 2,
+                    },
+                },
+            },
+        },
     },
     functions: {
-        original: {},
-        updated: {}
+        original: {
+            identity: (x: unknown) => x,
+        },
+        updated: {
+            flatten: (l: unknown[]) => l.flat()
+        }
     },
     errors: {
-        original: {},
-        updated: {}
+        original: {
+            anError: new Error('test error'),
+        },
+        updated: {
+            another: new Error('second error'),
+        }
     },
     nulls: {
-        original: {},
-        updated: {}
+        original: {
+            nullValue: null,
+        },
+        updated: {
+            another: null,
+        }
     },
     undefineds: {
-        original: {},
-        updated: {}
+        original: {
+            und: undefined,
+        },
+        updated: {
+            another: undefined,
+        }
     },
     arrays: {
         original: {},
@@ -80,18 +118,74 @@ describe('objecdiff', function () {
 
         it('should work on dates', async function() {
             const data = testData.dates;
+            const expectedPathDiffs = ['endDate', 'dueDate'];
 
             const differences = diff(data.original, data.updated);
-            assert.equal(differences.length, 2);
-            assertPathDifferences(['endDate', 'dueDate'], data.original, data.updated, differences);
+            assert.equal(differences.length, expectedPathDiffs.length);
+            assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
         });
 
         it('should work on strings', async function() {
             const data = testData.strings;
+            const expectedPathDiffs = ['firstName', 'lastName', 'name', 'color.favorite'];
             
             const differences = diff(data.original, data.updated);
-            assert.equal(differences.length, 4);
-            assertPathDifferences(['firstName', 'lastName', 'name', 'color.favorite'], data.original, data.updated, differences);
+            assert.equal(differences.length, expectedPathDiffs.length);
+            assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
         });
+
+        it('should work on booleans', async function() {
+            const data = testData.booleans;
+            const expectedPathDiffs = ['enabled', 'wasPreviouslyEnabled'];
+            
+            const differences = diff(data.original, data.updated);
+            assert.equal(differences.length, expectedPathDiffs.length);
+            assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
+        });
+
+        it('should work on nested docs', async function() {
+            const data = testData.nestedDocs;
+            const expectedPathDiffs = ['singleLevel.fieldLevel', 'multiLevel.firstLevel.a', 'multiLevel.firstLevel.anotherLevel.b'];
+            
+            const differences = diff(data.original, data.updated);
+            assert.equal(differences.length, expectedPathDiffs.length);
+            assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
+        });
+
+        it('should work on functions', async function() {
+            const data = testData.functions;
+            const expectedPathDiffs = ['identity', 'flatten'];
+            
+            const differences = diff(data.original, data.updated);
+            assert.equal(differences.length, expectedPathDiffs.length);
+            assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
+        });
+
+        it('should work on errors', async function() {
+            const data = testData.errors;
+            const expectedPathDiffs = ['anError', 'another'];
+            
+            const differences = diff(data.original, data.updated);
+            assert.equal(differences.length, expectedPathDiffs.length);
+            assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
+        });
+
+        it('should work on nulls', async function() {
+            const data = testData.nulls;
+            const expectedPathDiffs = ['nullValue', 'another'];
+            
+            const differences = diff(data.original, data.updated);
+            assert.equal(differences.length, expectedPathDiffs.length);
+            assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
+        });
+
+        // it('should work on undefined', async function() {
+        //     const data = testData.undefineds;
+        //     const expectedPathDiffs = ['und', 'another'];
+            
+        //     const differences = diff(data.original, data.updated);
+        //     assert.equal(differences.length, expectedPathDiffs.length);
+        //     assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
+        // });
     });
 });
