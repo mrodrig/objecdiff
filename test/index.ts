@@ -65,7 +65,7 @@ const testData = {
         },
         updated: {
             flatten: (l: unknown[]) => l.flat()
-        }
+        },
     },
     errors: {
         original: {
@@ -73,7 +73,7 @@ const testData = {
         },
         updated: {
             another: new Error('second error'),
-        }
+        },
     },
     nulls: {
         original: {
@@ -81,24 +81,16 @@ const testData = {
         },
         updated: {
             another: null,
-        }
-    },
-    undefineds: {
-        original: {
-            und: undefined,
         },
-        updated: {
-            another: undefined,
-        }
     },
     arrays: {
-        original: {},
-        updated: {}
+        original: {
+            anArray: [ 1, 2, 3, ],
+        },
+        updated: {
+            aDifferentOne: [ 4, 5, 6, ],
+        },
     },
-    regexps: {
-        original: {},
-        updated: {}
-    }
 };
 
 function assertPathDifferences(paths: string[], originalRecord: Record<string, unknown>, updatedRecord: Record<string, unknown>, differences: Difference[]) {
@@ -179,13 +171,13 @@ describe('objecdiff', function () {
             assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
         });
 
-        // it('should work on undefined', async function() {
-        //     const data = testData.undefineds;
-        //     const expectedPathDiffs = ['und', 'another'];
+        it('should work on arrays', async function() {
+            const data = testData.arrays;
+            const expectedPathDiffs = ['anArray', 'aDifferentOne'];
             
-        //     const differences = diff(data.original, data.updated);
-        //     assert.equal(differences.length, expectedPathDiffs.length);
-        //     assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
-        // });
+            const differences = diff(data.original, data.updated);
+            assert.equal(differences.length, expectedPathDiffs.length);
+            assertPathDifferences(expectedPathDiffs, data.original, data.updated, differences);
+        });
     });
 });
