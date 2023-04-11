@@ -1,12 +1,13 @@
 # An object difference library for NodeJS
 
-**This module can compares two objects and return the key that has changed along with the original and new values.**
+**This module can compares two objects and return the key that has changed along with the original and updated values.**
 
-[![Dependencies](https://img.shields.io/david/mrodrig/objecdiff.svg?style=flat-square)](https://www.npmjs.org/package/objecdiff)
-[![Build Status](https://travis-ci.org/mrodrig/objecdiff.svg?branch=master)](https://travis-ci.org/mrodrig/objecdiff)
-[![Downloads](http://img.shields.io/npm/dm/objecdiff.svg)](https://www.npmjs.org/package/objecdiff)
 [![NPM version](https://img.shields.io/npm/v/objecdiff.svg)](https://www.npmjs.org/package/objecdiff)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a10c14045f3d45d32b76/maintainability)](https://codeclimate.com/github/mrodrig/objecdiff/maintainability)
+[![Downloads](https://img.shields.io/npm/dm/objecdiff)](https://www.npmjs.org/package/objecdiff)
+[![Minzipped Size](https://img.shields.io/bundlephobia/minzip/objecdiff)](https://bundlephobia.com/result?p=objecdiff)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mrodrig/objecdiff/automated-tests-workflow.yml)](https://github.com/mrodrig/objecdiff/actions/workflows/automated-tests-workflow.yml)
+[![Coverage Status](https://coveralls.io/repos/github/mrodrig/objecdiff/badge.svg?branch=main)](https://coveralls.io/github/mrodrig/objecdiff?branch=main)
+[![Typings](https://img.shields.io/npm/types/objecdiff)](https://www.npmjs.org/package/objecdiff)
 
 ## Installation
 
@@ -17,24 +18,30 @@ $ npm install objecdiff
 ## Usage
 
 ```javascript
-let objecdiff = require('objecdiff');
+const objecdiff = require('objecdiff');
+
+// Alternatively:
+import { diff } from 'objecdiff';
 ```
 
 ### API
 
-#### diff Documentation
+#### diff(original, updated) Documentation
 
 ```javascript
 objecdiff.diff(objectA, objectB)
+
+// Alternatively if using the `import` method shown above:
+diff(objectA, objectB)
 ```
 
 * `objectA` - `Object` - The original or first object that you would like to compare.
-* `objectB` - `Object` - The new or second object that you would like to compare the first against.
+* `objectB` - `Object` - The updated or second object that you would like to compare the first against.
 
 #### Example
 
 ```javascript
-let objecdiff = require('../lib/objecdiff.js');
+import { diff } from 'objecdiff';
 
 let a = {
         firstName: 'Mike',
@@ -50,11 +57,11 @@ let a = {
         city: 'Boston'
     };
 
-console.log(objecdiff.diff(a, b));
-// => [ { documentPath: 'firstName', original: 'Mike', new: 'Dan' },
-// =>   { documentPath: 'lastName', original: 'R', new: undefined },
-// =>   { documentPath: 'name', original: undefined, new: 'Dan G' },
-// =>   { documentPath: 'color.favorite', original: null, new: 'blue' } ]
+console.log(diff(a, b));
+// => [ { path: 'firstName', original: 'Mike', updated: 'Dan' },
+// =>   { path: 'lastName', original: 'R', updated: undefined },
+// =>   { path: 'name', original: undefined, updated: 'Dan G' },
+// =>   { path: 'color.favorite', original: null, updated: 'blue' } ]
 ```
 
 ## Tests
@@ -63,18 +70,11 @@ console.log(objecdiff.diff(a, b));
 $ npm test
 ```
 
-_Note_: This requires `mocha`, `should`, `async`, and `underscore`.
-
 To see test coverage, please run:
 ```bash
 $ npm run coverage
 ```
 
-Current Coverage is:
-```
-<Tests coming soon.>
-```
-
 ## Features
 * Natively supports nested documents
-* Compares the objects and returns the key that has changed along with the original and new values
+* Compares the objects and returns the key that has changed along with the original and updated values
