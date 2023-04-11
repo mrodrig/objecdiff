@@ -2,11 +2,12 @@
 
 **This module can compares two objects and return the key that has changed along with the original and updated values.**
 
-[![Dependencies](https://img.shields.io/david/mrodrig/objecdiff.svg?style=flat-square)](https://www.npmjs.org/package/objecdiff)
-[![Build Status](https://travis-ci.org/mrodrig/objecdiff.svg?branch=master)](https://travis-ci.org/mrodrig/objecdiff)
-[![Downloads](http://img.shields.io/npm/dm/objecdiff.svg)](https://www.npmjs.org/package/objecdiff)
 [![NPM version](https://img.shields.io/npm/v/objecdiff.svg)](https://www.npmjs.org/package/objecdiff)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a10c14045f3d45d32b76/maintainability)](https://codeclimate.com/github/mrodrig/objecdiff/maintainability)
+[![Downloads](https://img.shields.io/npm/dm/objecdiff)](https://www.npmjs.org/package/objecdiff)
+[![Minzipped Size](https://img.shields.io/bundlephobia/minzip/objecdiff)](https://bundlephobia.com/result?p=objecdiff)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mrodrig/objecdiff/automated-tests-workflow.yml)](https://github.com/mrodrig/objecdiff/actions/workflows/automated-tests-workflow.yml)
+[![Coverage Status](https://coveralls.io/repos/github/mrodrig/objecdiff/badge.svg?branch=main)](https://coveralls.io/github/mrodrig/objecdiff?branch=main)
+[![Typings](https://img.shields.io/npm/types/objecdiff)](https://www.npmjs.org/package/objecdiff)
 
 ## Installation
 
@@ -69,16 +70,9 @@ console.log(diff(a, b));
 $ npm test
 ```
 
-_Note_: This requires `mocha`.
-
 To see test coverage, please run:
 ```bash
 $ npm run coverage
-```
-
-Current Coverage is:
-```
-<Tests coming soon.>
 ```
 
 ## Features
